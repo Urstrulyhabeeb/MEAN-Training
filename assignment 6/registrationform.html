@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+</head>
+<body>
+<h1>Registration Form</h1>
+<input type="text" id="name" placeholder="Enter Name">
+<input type="number" id="mobile" placeholder="Enter Mobile Number">
+<input type="text" id="mail" placeholder="Enter Email">
+<button id='submit' onclick="addToDo()">Submit</button>
+
+<div id="result"></div>
+
+<script type="text/javascript">
+	var todolist = [];
+	//var index = 0;
+	function deleteToDo()
+	{
+		console.log('index to be removed '+index);
+		todolist.splice(index);
+		console.log('after removal ' +todolist);
+	}
+	function addToDo()
+	{
+		var name = document.getElementById("name").value;
+		var mobile = document.getElementById("mobile").value;
+		var mail = document.getElementById("mail").value;
+		var index = todolist.push(name,mobile,mail);
+		
+		console.log(todolist);
+		//var submit = document.getElementById('submit');
+		displayToDo(name,mobile,mail);
+	}
+	function displayToDo(name,mobile,mail,index){
+		var result = '';
+		var outerdiv = document.getElementById("result");
+	
+		var tododiv = document.createElement("div");
+		var todospan1 = document.createElement("input");
+		var todospan2 = document.createElement("input");
+		var todospan3 = document.createElement("input");
+		var todoedit = document.createElement("button");
+		var tododelete = document.createElement("button");
+		var brk = document.createElement("br")
+		tododiv.setAttribute("id",index);
+		todoedit.setAttribute("id",index);
+		tododelete.setAttribute("id",index);
+
+		todospan1.type = "text";
+		todospan1.value = name;
+
+		todospan2.type = "nuumber";
+		todospan2.value = mobile;
+
+		todospan3.type = "text";
+		todospan3.value = mail;
+
+
+		todoedit.innerText ="Edit";
+		tododelete.innerText ="Delete";
+
+		tododiv.appendChild(todospan1);
+		tododiv.appendChild(todospan2);
+		tododiv.appendChild(todospan3);
+
+		tododiv.appendChild(todoedit);
+		tododiv.appendChild(tododelete);
+		tododiv.appendChild(brk);
+		outerdiv.append(tododiv);
+		todoedit.addEventListener("click",editToDo);
+		tododelete.addEventListener("click",deleteToDo);	
+		
+	}
+	function editToDo(){
+		console.log('edit clicked');
+		var editedValue='';
+		console.log(this.parentNode.firstChild.innerHTML);
+		todoedit = this.parentNode.firstChild;
+		index =event.srcElement.id;
+		editedValue = todoedit.value;
+	console.log('editedValue ',editedValue, ' index ',index);
+	todolist[index-1] = editedValue;
+	console.log('todolist after update :',todolist);
+	}
+	
+	function deleteToDo(){
+		console.log('delete clicked');
+		console.log(event.srcElement.id);
+		console.log(this.parentNode);
+		index = event.srcElement.id;
+		var pare = this.parentNode;
+		pare.remove();
+		todolist.splice(index-1,1);
+		console.log('after deletion :',todolist);
+	}
+</script>
+</body>
+</html>

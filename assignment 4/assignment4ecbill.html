@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EC Bill</title>
+</head>
+<body>
+ <h2>EC Bill</h2>
+<script type="text/javascript">
+	
+
+	function Ecbill(usage)
+	 {
+		if (usage<=100){
+
+			bill = usage*2;
+			console.log("ur ec upto 100 units amount is:" + bill);
+			
+		}
+		 else if (usage>100 && usage<200)
+		{
+			bill = usage*3;
+			console.log("ur ec between 200 unit   amount is:" + bill);
+			
+		}
+		else  (usage>500)
+		{ 
+			bill = usage*4;
+			console.log("ur ec for more than 400 units  amount is:" + bill);
+		}
+	}
+
+	Ecbill(60);
+</script>
+
+</body>
+</html>
