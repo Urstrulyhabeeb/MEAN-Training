@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<style type="text/css">
+	
+       table,th,td
+       {
+       	border-collapse: collapse;
+       }
+       tr:nth-child(odd)
+       {
+       background: yellow;
+       }
+       tr:nth-child(even)
+       {
+       background: grey;
+       }
+       
+</style>
+
+
+<p>Today's welcome message is:</p>
+
+<div ng-app="myApp" ng-controller="myCtrl"> 
+
+
+<table border="1" width="100%">
+
+
+		<tr style="background-color: red">
+			<th>userId</th>
+	        <th>id</th>
+	        <th>title</th>
+	        <th>body</th>    
+       </tr>
+
+<tr ng-repeat = "obj in objjson  | limitTo : 10">
+<td>{{obj.userId}}</td>
+<td>{{obj.id}}</td>
+<td>{{obj.title}}</td>
+<td>{{obj.body}}</td>
+<td>{{obj.myOrderBy }}</td></tr>
+
+</div>
+
+<form ng-submit = "orderByMe()">
+
+    <label>enter userid:</label>
+    <input type="text" ng-model = "userId" placeholder="enter userid"><br>
+    <label>enter the id:</label>
+    <input type="text" ng-model = "id" placeholder="enter id"><br>
+    <label>enter the title:</label>
+    <input type="text" ng-model = "title" placeholder="enter title"><br>
+    <label>enter the body:</label>
+    <input type="text" ng-model = "body" placeholder="enter body"><br>
+    <input type="submit" value = "calculate">
+  </form>
+
+<p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http.get("jsons.json").then(function (response) {
+  	console.log('response', response);
+  	console.log('response data', response.data);
+      $scope.objjson = response.data;
+  });
+
+  $scope.orderByMe = function()
+    {
+     
+      $scope.myOrderBy = alert("registration is succesfull") 
+    };
+      
+});
+</script>
+
+</body>
+</html>
