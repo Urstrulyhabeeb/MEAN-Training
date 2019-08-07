@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <script src="js/angular/angular.min.js"></script>
+    <script src="js/angular-animate/angular-animate.min.js"></script>
+    <script src="js/angular-route/angular-route.min.js"></script>
+    <script src="js/angular-ui-router/release/angular-ui-router.min.js"></script>
+ 
+</head>
+
+<body>
+
+    <body ng-app="myApp"></body>
+<div class="container">
+  <h3>SNOWMED DC Browser</h3>
+  <div ng-controller="appController">
+
+  <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home"  ng-click = "goEmpty()">Home</a></li>
+      <li><a data-toggle="tab" href="#Search" ng-click="goTo()">Search</a></li>
+      <li><a data-toggle="tab" href="#Favorites" ng-click = "goEmpty()">Favorites</a></li>
+      <li><a data-toggle="tab" href="#Refset" ng-click = "goEmpty()">Refset</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+          <dt style=" padding:0px 0px 0px 50px; background-color: #f1f1f1">HOME</dt>
+          <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+        </div>
+        <div id="Search" class="tab-pane fade">
+          <dt style="padding:0px 0px 0px 50px; background-color: #f1f1f1" >Search </dt>
+          <!-- <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
+        </div>
+        <div id="Favorites" class="tab-pane fade">
+          <dt style=" padding:0px 0px 0px 50px; background-color: #f1f1f1">Favorites</dt>
+          <!-- <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p> -->
+        </div>
+        <div id="Refset" class="tab-pane fade">
+          <dt style=" padding:0px 0px 0px 50px; background-color: #f1f1f1" >Refset</dt>
+          <!-- <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p> -->
+        </div>
+        </div>
+  
+
+  
+</div>
+</div>
+<div ui-view></div>
+
+<script src="app.js"></script>
+<script src="/Details/SearchController.js"></script>
+
+
+</body>
+</html>
