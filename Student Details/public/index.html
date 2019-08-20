@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee details</title>
+    <style type="text/css">
+    /* <link rel="stylesheet" href="css/style.css"> */
+   
+    </style>
+</head> angular
+
+<body ng-app="myApp">
+ <h3 style="font-style: italic" >Student Details And Sections</h3>
+    <div ng-controller="appController">
+        <ul style="text-align: center;">
+
+            <!-- <li> <input type="button" ng-click="goToStudentDetails()" value="click here for go"</li> -->
+            <li ><a ng-click="goToStudentDetails();">Student Details</a></li>
+            <!-- <li><a  ng-click="goToStudentMarks();" >Student Marks</a></li>    -->
+        </ul>
+        <div ui-view></div>
+        
+    </div>
+    <script src="js/angular/angular.min.js"></script>
+    <script src="js/angular-animate/angular-animate.min.js"></script>
+    <script src="js/angular-route/angular-route.min.js"></script>
+    <script src="js/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> -->
+  
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+     <script src="app.js"></script>
+    <script src="/Student Details/stuDetailController.js"></script>
+    <script src="/Student Details/marksController.js"></script>
+    <script src="/Student Marks/stuMarksController.js"></script>
+
+    
+    
+</body>
+
+</html>

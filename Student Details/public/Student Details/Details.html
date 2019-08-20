@@ -1,0 +1,121 @@
+<body>
+	<form name="myForm">
+<center>
+	 <h4>Student Details</h4>
+     <!-- <form ng-submit="addStudent()"> -->
+	 <table border=0 cellpadding="10">
+     <tr>
+        
+	<td>
+		<label>student name:</label>
+	</td>
+
+    <td>
+		<input type="text" ng-model="studentdata.name" placeholder="Enter Your student Name" required>
+	</td>
+	</tr>
+
+	<tr>
+	<td>
+		<label>student age:</label>
+	</td>
+
+	<td>
+		<input type="number" ng-model="studentdata.age" placeholder="Enter students age" min="0" max="80"
+		oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "2" >
+		
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<label>student standard:</label>
+	</td>
+
+	<td>
+		<input type="number" ng-model="studentdata.standard" placeholder="Enter standard" required>
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<label>fvrte subject:</label>
+	</td>
+
+	<td>
+		<input type="text" ng-model="studentdata.subject" placeholder="Enter Your student subject">
+	</td>
+</tr>
+
+<tr>
+	<td>
+		<label>student marks:</label>
+	</td>
+
+	<td>
+		<input type="number" ng-model="studentdata.marks" placeholder="Enter students marks">
+	</td>
+</tr>
+</table>
+	
+</center>
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <center>
+<h4><label>Add Marks Information</label></h4>
+		  <input type="button" value="add" ng-click="newItem()" />
+		  <br><br>
+		  <!-- <form ng-submit="addStudent()"> -->
+  <table border=2 cellpadding="20">
+	  <tr>
+		  <th>subject</th>							
+		  <th>marks</th>
+		  <th>result </th>  
+		  <th>action </th>  
+	  </tr>
+	  <tr ng-repeat="stu in studentdata.SubjectMarks ">
+		<td>
+			<select ng-model="stu.subject" ng-options="item for item in subject" required></select>
+			
+		</td>
+		<td>
+			<input type="number"  ng-model="stu.marks" ng-change="result($index)" min="0" max = "100" required/>
+			
+		</td>
+		<td>
+			
+			 <input type="text" style="font-style: red" ng-model="stu.result" readonly/>		
+		</td>
+		<td>
+                
+			<input type="button" value="delete" ng-click="delete($index)" />
+		</td>
+		<br>	
+	</tr>
+</table>
+</center>
+<br>
+<br>
+
+
+	  <!-- <input type="submit" value="submit" ng-click="addStudent()"> -->
+	 
+	  <center>
+			<input type="submit" value="submit" ng-click="addStudent()" ng-disabled="myForm.$invalid"/>
+			<br>
+			<input type="submit" value="cancel" ng-click="cancel()">
+
+		</center>
+	
+	
+</center>
+</form>
+	</body>
+
+
+
